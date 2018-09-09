@@ -1,5 +1,6 @@
 import Dispatcher from '../dispatcher'
 import BaseStore from '../base/store'
+import {ActionTypes} from '../constants/app'
 
 const messages = {
   2: {
@@ -70,12 +71,6 @@ const messages = {
 var openChatID = parseInt(Object.keys(messages)[0], 10)
 
 class ChatStore extends BaseStore {
-  addChangeListener(callback) {
-    this.on('change', callback)
-  }
-  removeChangeListener(callback) {
-    this.off('change', callback)
-  }
   getOpenChatUserID() {
     return openChatID
   }
@@ -89,7 +84,16 @@ class ChatStore extends BaseStore {
 const MessagesStore = new ChatStore()
 
 MessagesStore.dispatchToken = Dispatcher.register(payload => {
+  const action = payload.action
 
+  switch (action.type) {
+    case ActionTypes.UPDATE_OPEN_CHAT_ID:
+      openChatID = action.userID
+      MessagesStore.emitChange()
+      break
+  }
+
+  return true
 })
 
 export default MessagesStore
