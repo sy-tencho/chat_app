@@ -89,6 +89,7 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
 
   switch (action.type) {
     case ActionTypes.UPDATE_OPEN_CHAT_ID:
+      messages[openChatID].lastAccess.currentUser = +new Date()
       openChatID = action.userID
       MessagesStore.emitChange()
       break
@@ -100,6 +101,7 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
         timestamp: action.timestamp,
         from: UserStore.user.id,
       })
+      messages[userID].lastAccess.currentUser = +new Date()
       MessagesStore.emitChange()
       break
   }
