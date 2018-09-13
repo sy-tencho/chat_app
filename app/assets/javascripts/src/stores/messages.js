@@ -1,3 +1,4 @@
+
 import Dispatcher from '../dispatcher'
 import BaseStore from '../base/store'
 import UserStore from '../stores/user'
@@ -110,4 +111,3 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
 })
 
 export default MessagesStore
-
