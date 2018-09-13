@@ -110,3 +110,4 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
 })
 
 export default MessagesStore
+
