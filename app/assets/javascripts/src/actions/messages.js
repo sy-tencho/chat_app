@@ -49,7 +49,7 @@ export default {
         if (!error && res.status === 200) {
           const json = JSON.parse(res.text)
           Dispatcher.handleServerAction({
-            type: ActionTypes.SAVE_MESSAGE,
+            type: ActionTypes.SAVE_MESSAGES,
             json,
           })
         } else {

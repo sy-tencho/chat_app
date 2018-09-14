@@ -2,7 +2,7 @@ import keyMirror from 'keymirror'
 
 export const ActionTypes = keyMirror({
   GET_MESSAGES: null,
-  SAVE_MESSAGE: null,
+  SAVE_MESSAGES: null,
 })
 
 export function CSRFToken() {
