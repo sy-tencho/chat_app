@@ -5,4 +5,8 @@ class MessagesController < ApplicationController
       redirect_to '/users/sign_in'
     end
   end
+
+  def after_sign_out_path_for
+    '/users/sign_in'
+  end
 end
