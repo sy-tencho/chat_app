@@ -25,7 +25,7 @@ $red: #ce2434;
     margin: 48px 0 0 48px;
 }
 
-// new.html.erb
+//new.html.erb
 #error_explanation {
     margin: 24px 0 0 48px;
     color: $red;
@@ -92,5 +92,13 @@ a {
     .translation_missing {
         color: $black;
         font-weight: 700px;
+    }
+}
+
+// passwords/new.html.erb
+
+#button-reset {
+    input {
+        width: 250px;
     }
 }
