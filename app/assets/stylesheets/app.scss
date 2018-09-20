@@ -14,3 +14,83 @@
 // Components
 @import 'components/_replyBox';
 
+$black: #424242;
+$gray: #f5f5f5;
+$white: #fdfdfd;
+$red: #ce2434;
+
+@mixin devise-title {
+    color: $black;
+    font-size: 36px;
+    margin: 48px 0 0 48px;
+}
+
+// new.html.erb
+#error_explanation {
+    margin: 24px 0 0 48px;
+    color: $red;
+
+    h2 {
+        font-size: 16px;
+    }
+}
+.devise-title {
+    @include devise-title;
+}
+
+.field {
+    margin: 24px 0 0 48px;
+
+    label {
+        font-size: 16px;
+        color: $black;
+        font-weight: 400;
+    }
+
+    em {
+        font-size: 16px;
+        color: $black;
+        font-weight: 400;
+    }
+
+    #user_username {
+        width: 300px;
+    }
+
+    #user_email {
+        width: 300px;
+    }
+
+    #user_password {
+        width: 300px;
+    }
+
+    #user_password {
+        width: 300px;
+    }
+
+    #user_password_confirmation {
+        width: 300px;
+    }
+}
+
+.actions {
+    margin: 24px 0 24px 48px;
+
+    input { 
+        width: 100px;
+        height: 25px;
+        border-radius: 20px;
+        color: $black;
+        background-color: $gray;
+    }
+}
+a {
+    margin: 0 0 0 48px;
+    font-size: 12px;
+    
+    .translation_missing {
+        color: $black;
+        font-weight: 700px;
+    }
+}
