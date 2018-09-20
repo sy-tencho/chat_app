@@ -1,9 +1,23 @@
 .header {
   height: 60px;
-  background: #2AADE5;
+  background: #424242;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 998;
+
+  ul {
+    color: #fdfdfd;
+    display: flex;
+    float: right;
+    padding-top: 15px;
+
+
+    li {
+      font-weight: 400;
+      font-size: 18px;
+      margin: 0 24px 0 0;
+    }
+  }
 }

@@ -1,4 +1,5 @@
 class Api::MessagesController < ApplicationController
+
     def create
         @message = Message.create(content: params[:content])
         render json: {content: @message}
