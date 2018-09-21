@@ -4,4 +4,6 @@ Rails.application.routes.draw do
     resources :messages
   end
   root 'messages#index'
+
+  get '/users/search', to: 'users#index'
 end
