@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   # def create
   #   super
+  #   @id = current_user.id
   # end
 
   # GET /resource/edit
