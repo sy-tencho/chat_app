@@ -1,23 +1,19 @@
-.header {
+#header {
   height: 60px;
   background: #424242;
   position: absolute;
+  text-align: right;
+  padding-top: 15px;
   top: 0;
   left: 0;
   right: 0;
   z-index: 998;
 
-  ul {
-    color: #fdfdfd;
-    display: flex;
-    float: right;
-    padding-top: 15px;
-
-
-    li {
+  a {
       font-weight: 400;
-      font-size: 18px;
       margin: 0 24px 0 0;
-    }
+      color: #fdfdfd;
+      font-size: 18px;
+      text-decoration: none;
   }
 }

@@ -1,0 +1,31 @@
+src/component/messages/header.js
+
+import React from 'react';
+import { browserHistory } from 'react-router';
+//import { BrowserRouter as Router, Link } from 'react-router-dom';
+
+class Header extends React.Component {
+  // onSubmit() {
+  //   browserHistory.push('/users/edit')
+  // }
+  render() {
+    return (
+      <header id='header'>
+        <ul>
+          <li><a href='/users/#{:id}/edit'>Edit</a></li>
+          <li><a href='/users/edit'>Logout</a></li>
+        </ul>
+      </header>
+    )
+  }
+}
+
+export default Header
+
+
+{/* <ul>
+  <li>Edit Profile</li>
+  <li>Log out</li>
+</ul> */}
+
+{/* <li onClick={this.onSubmit.bind(this)}>Home</li> */}

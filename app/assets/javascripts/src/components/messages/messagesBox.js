@@ -1,9 +1,9 @@
 import React from 'react'
-import classNames from 'classNames'
+// import classNames from 'classNames'
 import MessagesStore from '../../stores/messages'
 import ReplyBox from '../../components/messages/replyBox'
-import UserStore from '../../stores/user'
-import Utils from '../../utils'
+// import UserStore from '../../stores/user'
+// import Utils from '../../utils'
 
 class MessagesBox extends React.Component {
 
@@ -17,7 +17,7 @@ class MessagesBox extends React.Component {
   getStateFromStore() {
     return {
       messages: MessagesStore.getMessages(),
-    } 
+    }
   }
   componentWillMount() {
     MessagesStore.onChange(this.onStoreChange.bind(this))
@@ -30,8 +30,8 @@ class MessagesBox extends React.Component {
   }
 
   render() {
-    //const messagesLength = this.state.messages.length
-    //const currentUserID = UserStore.user.id
+    // const messagesLength = this.state.messages.length
+    // const currentUserID = UserStore.user.id
     // const messages = this.state.messages.map((message) => {
     //   const messageClasses = classNames({
     //     'message-box__item': true,
@@ -48,7 +48,7 @@ class MessagesBox extends React.Component {
     //     )
     // })
 
-    //const lastMessage = this.state.messages[messagesLength - 1]
+    // const lastMessage = this.state.messages[messagesLength - 1]
 
     // if (lastMessage.from === currentUserID) {
     //   if (this.state.lastAccess.recipient >= lastMessage.timestamp) {
@@ -64,18 +64,18 @@ class MessagesBox extends React.Component {
     // }
 
     const messages = this.state.messages.map(message => {
-      const messageClasses = classNames({
-        'message-box__item': true,
-        //'message-box__item--from-current': message.user_id === currentUserId,
-        'clear': true,
-      })
+      // const messageClasses = classNames({
+      //   'message-box__item': true,
+      //   'message-box__item--from-current': message.user_id === currentUserId,
+      //   'clear': true,
+      // })
       return (
         <div className='message-box__item__contents'>
           { messages }
         </div>
       )
     })
-    
+
     return (
         <div className='message-box'>
           <ul className='message-box__list'>
