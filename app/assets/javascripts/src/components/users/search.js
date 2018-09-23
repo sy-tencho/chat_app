@@ -7,7 +7,6 @@ export default class UserSearch extends React.Component {
   render() {
     return (
       <div>
-        Hello, world! I am a UserSearch.
       </div>
     )
   }
