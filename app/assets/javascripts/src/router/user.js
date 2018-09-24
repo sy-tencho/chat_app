@@ -1,6 +1,6 @@
 import ReactDecorator from '../base/react_decorator'
 import BaseRouter from '../base/router'
-import UserSearch from '../components/users/search'
+import App from '../components/users/app'
 
 export default class UserRouter extends BaseRouter {
   register() {
@@ -8,7 +8,7 @@ export default class UserRouter extends BaseRouter {
   }
 
   decorateUserSearch(ctx, next) {
-    (new ReactDecorator()).decorate('user-search', UserSearch)
+    (new ReactDecorator()).decorate('user-search', App)
     next()
   }
 }
