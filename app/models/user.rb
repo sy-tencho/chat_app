@@ -3,6 +3,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def self.search(search)
+    if search
+      where(['name LIKE ?', "%#{search}%"])
+    else
+    end
+  end
 end
 
 

@@ -13,6 +13,7 @@ class SearchBox extends React.Component {
             searchText,
         })
         UsersAction.loadSearchUsers(searchText)
+        console.log(searchText);
     }
 
     render() {
