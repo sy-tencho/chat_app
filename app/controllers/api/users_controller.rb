@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
     def index
-        @users = User.search(params[:input])
-        render json: @users
+        @username = User.search(params[:input])
+        render json: @username
     end
 end
