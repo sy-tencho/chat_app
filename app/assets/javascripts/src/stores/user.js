@@ -1,3 +1,4 @@
+
 const UserStore = {
   user: {
     id: 1,
@@ -7,3 +8,4 @@ const UserStore = {
 }
 
 export default UserStore
+
