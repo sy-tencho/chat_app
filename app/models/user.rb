@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
     if search
       where(['username LIKE ?', "%#{search}%"])
     else
+      nil
     end
   end
 end

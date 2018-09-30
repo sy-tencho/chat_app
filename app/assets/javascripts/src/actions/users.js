@@ -1,7 +1,7 @@
 // SearchBox.jsで受け取った情報をjson方式でRailsに接続
 
 import request from 'superagent'
-import Dispatcher from '../dispatcher'
+import appDispatcher from '../dispatcher'
 import {ActionTypes, APIEndpoints} from '../constants/app'
 
 export default {
@@ -34,7 +34,7 @@ export default {
           if (!error && res.status === 200) {
             const json = JSON.parse(res.text)
             console.log(json)
-            Dispatcher.handleServerAction({
+            appDispatcher.handleServerAction({
               type: ActionTypes.LOAD_SEARCH_USERS,
               json,
             })

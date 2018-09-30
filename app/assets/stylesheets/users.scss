@@ -18,3 +18,25 @@
         height: 30px;
     }
 }
+
+// userList.js
+#search_user_list_wrap {
+
+    text-align: center;
+    color: #424242;
+
+    .search_user_list {
+        width: 300px;
+        height: 25px;
+        margin: auto;
+        text-align: left;
+
+        li {
+            width: 300px;
+            height: 25px;
+            margin-top: 5px;
+            font-size: 15px;
+            border-bottom: inset 0.5px #f5f5f5;
+        }
+    }
+}
