@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root 'messages#index'
 
   get '/users/search', to: 'users#index'
+  post '/api/messages', to: 'api/messages#create'
 end

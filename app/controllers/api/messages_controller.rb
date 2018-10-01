@@ -1,15 +1,15 @@
 class Api::MessagesController < ApplicationController
-    before_action :authenticate_user
+    # before_action :authenticate_user
 
     def create
         @message = Message.create(content: params[:content])
-        render json: {content: @message}
+        render json: @message
     end
 
     def index
         @user = Message.find_by(id: 1)
         @message = @user.content
-        render json: {content: @message}
+        render json: @message 
     end
 
     def set_current_user

@@ -42,9 +42,9 @@ export default {
   saveMessage(content) {
     return new Promise((resolve, reject) => {
       request
-      .post(APIEndpoints.MESSAGES)
+      .post(`${APIEndpoints.MESSAGES}`)
       .set('X-CSRF-Token', CSRFToken())
-      .send({content})
+      .send({content: content})
       .end((error, res) => {
         if (!error && res.status === 200) {
           const json = JSON.parse(res.text)

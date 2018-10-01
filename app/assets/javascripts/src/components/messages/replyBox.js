@@ -20,6 +20,7 @@ class ReplyBox extends React.Component {
         value: '',
       })
     }
+    console.log(this.state.value)
   }
   updateValue(e) {
     this.setState({
