@@ -2,7 +2,8 @@ class Api::MessagesController < ApplicationController
     # before_action :authenticate_user
 
     def create
-        @message = Message.create(content: params[:content])
+        @post_user_id = current_user.id
+        @message = Message.create(content: params[:content], post_user_id: @post_user_id)
         render json: @message
     end
 
