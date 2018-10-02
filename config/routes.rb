@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   root 'messages#index'
 
   get '/users/search', to: 'users#index'
+  get '/api/friends', to: 'api/friends#index'
   post '/api/messages', to: 'api/messages#create'
   post 'api/friends', to: 'api/friends#create'
+
   
 end

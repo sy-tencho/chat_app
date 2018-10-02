@@ -3,6 +3,27 @@ import appDispatcher from '../dispatcher'
 import {ActionTypes, APIEndpoints, CSRFToken} from '../constants/app'
 
 export default {
+
+    loadFriends() {
+      return new Promise((resolve, reject) => {
+        request
+        .get(`${APIEndpoints.FRIENDS}`)
+        .end((error, res) => {
+          if (!error && res.status === 200) {
+            const json = JSON.parse(res.text)
+            console.log(json)
+            appDispatcher.handleServerAction({
+              type: ActionTypes.LOAD_USERS,
+              json: json,
+            })
+            resolve(json)
+          } else {
+            reject(res)
+          }
+        })
+      })
+    },
+
     buildFriendRelationship(connected_user_id) {
         return new Promise((resolve, reject) => {
           request
