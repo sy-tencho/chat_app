@@ -39,6 +39,7 @@ class UserList extends React.Component {
 
     onSubmitHandler(connected_user_id) {
         FriendsAction.buildFriendRelationship(connected_user_id)
+        window.location.replace('/')
       }
 
     render() {
