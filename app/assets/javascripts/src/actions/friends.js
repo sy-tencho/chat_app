@@ -11,11 +11,11 @@ export default {
         .end((error, res) => {
           if (!error && res.status === 200) {
             const json = JSON.parse(res.text)
-            console.log(json)
             appDispatcher.handleServerAction({
-              type: ActionTypes.LOAD_USERS,
+              type: ActionTypes.LOAD_FRIENDS,
               json: json,
             })
+            console.log(json)
             resolve(json)
           } else {
             reject(res)

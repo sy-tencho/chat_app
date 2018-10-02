@@ -30,7 +30,9 @@ class Api::FriendsController < ApplicationController
             friends_list.push(friend)
         end
 
-        render json: friends_list
+        friends_list_new = friends_list.uniq
+        render json: friends_list_new
+
     end
 
     # how to write sql

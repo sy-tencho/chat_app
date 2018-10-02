@@ -9,7 +9,7 @@ class UserList extends React.Component {
         return {
           searchString: React.PropTypes.string,
         }
-      }
+    }
 
     constructor(props) {
         super(props)
@@ -33,7 +33,7 @@ class UserList extends React.Component {
         UserStore.onChange(this.onStoreChange.bind(this))
     }
     
-      componentWillUnmount() {
+    componentWillUnmount() {
         UserStore.offChange(this.onStoreChange.bind(this))
     }
 

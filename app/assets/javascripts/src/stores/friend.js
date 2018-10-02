@@ -1,11 +1,10 @@
 import appDispatcher from '../dispatcher'
 import BaseStore from '../base/store'
 import {ActionTypes} from '../constants/app'
-import friends from '../actions/friends';
 
 class FriendStore extends BaseStore {
   getFriends() {
-    if (!this.get('friends')) this.setUsers([])
+    if (!this.get('friends')) this.setFriends([])
     return this.get('friends')
   }
 
@@ -22,13 +21,14 @@ Friend.dispatchToken = appDispatcher.register(payload => {
   switch (action.type) {
     case ActionTypes.LOAD_FRIENDS:
       Friend.setFriends(payload.action.json)
+      console.log(payload.action.json)
       Friend.emitChange()
       break
 
     case ActionTypes.LOAD_SEARCH_FRIENDS: 
       Friend.setFriends(payload.action.json)
       Friend.emitChange()
-      console.log(payload.action.json)
+      // console.log(payload.action.json)
       break
   }
 
@@ -36,4 +36,4 @@ Friend.dispatchToken = appDispatcher.register(payload => {
 })
 
 window.Friend = Friend
-export default friends
+export default Friend

@@ -4,26 +4,60 @@ import FriendStore from '../../stores/friend'
 import FriendAction from '../../actions/friends'
 
 class UserList extends React.Component {
+
+  static get propTypes() {
+    return {
+      searchString: React.PropTypes.string,
+    }
+  }
   constructor(props) {
     super(props)
     this.state = this.initialState
   }
 
-  onStoreChange() {
-    return {friends: FriendStore.getUsers()}
+  get initialState() {
+    return this.getStateFromStores()
   }
 
-  getFrieds() {
-    FriendAction.loadFriends()
+  onStoreChange() {
+    this.setState(this.getStateFromStores())
+  }
+
+  getStateFromStores() {
+    return {friends: FriendStore.getFriends()}
+  }
+
+  // getFriends() {
+  //   FriendAction.loadFriends()
+  // }
+
+  componentDidMount() {
+    FriendStore.onChange(this.onStoreChange.bind(this))
+  }
+
+  componentWillUnmount() {
+    FriendStore.offChange(this.onStoreChange.bind(this))
   }
 
   render() {
 
-    this.onLoad = this.getFrieds()
+    // this.reload = this.getFriends()
+    const Friend = this.state.friends
+    console.log(this.state.friends)
 
     return(
       <div className='user-list'>
-      
+        <ul className='hoge'>
+          {
+            _.map(Friend, (friends) => {
+              return (
+                <li key={friends.id}>
+                  { friends.username }
+                </li>
+              )
+            })
+          }
+        </ul>
       </div>
     ) 
   }
