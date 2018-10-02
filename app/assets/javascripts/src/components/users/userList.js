@@ -1,6 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import UserStore from '../../stores/user'
+import FriendsAction from '../../actions/friends'
 
 class UserList extends React.Component {
 
@@ -36,6 +37,10 @@ class UserList extends React.Component {
         UserStore.offChange(this.onStoreChange.bind(this))
     }
 
+    onSubmitHandler(connected_user_id) {
+        FriendsAction.buildFriendRelationship(connected_user_id)
+      }
+
     render() {
         const searchUsers = this.state.users
         console.log(searchUsers)
@@ -46,7 +51,9 @@ class UserList extends React.Component {
                         _.map(searchUsers, (user) => {
                             return (
                                 <li className = 'search_user_list_item' key={user.id}>
+                                  <div className = 'search_user_list_result' onClick={this.onSubmitHandler.bind(this, user.id)}>
                                     { user.username }
+                                  </div>
                                 </li>
                             )
                         })
