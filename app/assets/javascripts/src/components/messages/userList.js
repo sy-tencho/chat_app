@@ -47,12 +47,12 @@ class UserList extends React.Component {
 
     return(
       <div className='user-list'>
-        <ul className='hoge'>
+        <ul id='friendList'> 
           {
             _.map(Friend, (friends) => {
               return (
                 <li key={friends.id}>
-                  { friends.username }
+                  <span>{ friends.username }</span>
                 </li>
               )
             })
