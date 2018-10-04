@@ -1,4 +1,6 @@
 %div{id: 'header'}
+    %span
+        = current_user.username
     = link_to 'Find Friends', 'users/search'
     = link_to 'Edit', '/users/edit'
     = link_to 'Logout', '/users/sign_out', {method: 'delete'}
