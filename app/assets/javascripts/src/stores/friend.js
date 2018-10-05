@@ -25,10 +25,15 @@ Friend.dispatchToken = appDispatcher.register(payload => {
       Friend.emitChange()
       break
 
-    case ActionTypes.LOAD_SEARCH_FRIENDS: 
+    case ActionTypes.LOAD_SEARCH_FRIENDS:
       Friend.setFriends(payload.action.json)
       Friend.emitChange()
       // console.log(payload.action.json)
+      break
+
+    case ActionTypes.LOAD_FRIENDS_ID:
+      toUserId = action.toUserId
+      Friend.emitChange()
       break
   }
 

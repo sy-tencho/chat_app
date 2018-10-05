@@ -23,11 +23,11 @@ export default {
     //     })
     //   })
     // },
-  
-    loadSearchUsers(search_string) {
-      return new Promise((resolve, reject) => {
-        console.log(search_string)
-        request
+
+  loadSearchUsers(search_string) {
+    return new Promise((resolve, reject) => {
+      console.log(search_string)
+      request
         .get(`${APIEndpoints.USERS}`)
         .query({input: search_string})
         .end((error, res) => {
@@ -43,6 +43,6 @@ export default {
             reject(res)
           }
         })
-      })
-    },
-  }
+    })
+  },
+}

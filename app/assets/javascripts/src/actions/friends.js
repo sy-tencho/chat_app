@@ -4,9 +4,9 @@ import {ActionTypes, APIEndpoints, CSRFToken} from '../constants/app'
 
 export default {
 
-    loadFriends() {
-      return new Promise((resolve, reject) => {
-        request
+  loadFriends() {
+    return new Promise((resolve, reject) => {
+      request
         .get(`${APIEndpoints.FRIENDS}`)
         .end((error, res) => {
           if (!error && res.status === 200) {
@@ -21,12 +21,12 @@ export default {
             reject(res)
           }
         })
-      })
-    },
+    })
+  },
 
-    buildFriendRelationship(connected_user_id) {
-        return new Promise((resolve, reject) => {
-          request
+  buildFriendRelationship(connected_user_id) {
+    return new Promise((resolve, reject) => {
+      request
           .post(`${APIEndpoints.FRIENDS}`)
           .set('X-CSRF-Token', CSRFToken())
           .send({connected_user_id: connected_user_id})
@@ -41,6 +41,20 @@ export default {
               reject(res)
             }
           })
-        })
-    },
+    })
+  },
+
+  loadFriendsId(id) {
+    appDispatcher.handleServerAction({
+      type: ActionTypes.LOAD_FRIENDS_ID,
+      toUserId: id
+    })
+  },   
+
+    // loadFriendsId(id) {
+    //     appDispatcher.waitFor({
+    //     type: ActionTypes.LOAD_FRIENDS_ID,
+    //     toUserId: id
+    //     })
+    // },
 }

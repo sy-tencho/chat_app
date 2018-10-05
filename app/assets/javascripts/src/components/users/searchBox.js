@@ -3,23 +3,23 @@ import UsersAction from '../../actions/users'
 
 class SearchBox extends React.Component {
     constructor(props) {
-        super(props)
-        this.state = this.initialState
+      super(props)
+      this.state = this.initialState
     }
 
     handleChange(e) {
-        const searchText = e.target.value
-        this.setState({
-            searchText,
-        })
-        UsersAction.loadSearchUsers(searchText)
-        console.log(searchText);
+      const searchText = e.target.value
+      this.setState({
+        searchText,
+      })
+      UsersAction.loadSearchUsers(searchText)
+      console.log(searchText)
     }
 
     render() {
-        return (
+      return (
             <div className='searchBox'>
-                <input 
+                <input
                     type='text'
                     onChange={ this.handleChange.bind(this) }
                     placeholder= 'Search by user name'

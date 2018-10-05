@@ -1,5 +1,6 @@
 import React from 'react'
 import MessagesAction from '../../actions/messages'
+import FriendStore from '../../stores/friend'
 
 class ReplyBox extends React.Component {
 
@@ -11,6 +12,11 @@ class ReplyBox extends React.Component {
   get initialState() {
     return {
       value: '',
+    }
+  }
+  getStateFromStore() {
+    return {
+      messages: FriendStore.getMessages(),
     }
   }
   handleKeyDown(e) {

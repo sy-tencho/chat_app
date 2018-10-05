@@ -15,6 +15,8 @@ const appDispatcher = assign(new Dispatcher(), {
       action: action,
     })
   },
+
 })
 
 export default appDispatcher
+

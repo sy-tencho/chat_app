@@ -34,7 +34,7 @@ User.dispatchToken = appDispatcher.register(payload => {
       User.emitChange()
       break
 
-    case ActionTypes.LOAD_SEARCH_USERS: 
+    case ActionTypes.LOAD_SEARCH_USERS:
       User.setUsers(payload.action.json)
       User.emitChange()
       console.log(payload.action.json)

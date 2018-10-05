@@ -39,27 +39,28 @@ class UserList extends React.Component {
     FriendStore.offChange(this.onStoreChange.bind(this))
   }
 
+  getFriends(id) {
+    FriendAction.loadFriendsId(id)
+  }
+
   render() {
+    const friends = this.state.friends
 
-    // this.reload = this.getFriends()
-    const Friend = this.state.friends
-    console.log(this.state.friends)
-
-    return(
+    return (
       <div className='user-list'>
-        <ul id='friendList'> 
+        <ul id='friendList'>
           {
-            _.map(Friend, (friends) => {
+            _.map(friends, (friend) => {
               return (
-                <li key={friends.id}>
-                  <span>{ friends.username }</span>
+                <li key={friend.id} onClick={this.getFriends.bind(this, friend.id)}>
+                  <span>{friend.username}</span>
                 </li>
               )
             })
           }
         </ul>
       </div>
-    ) 
+    )
   }
 }
 
