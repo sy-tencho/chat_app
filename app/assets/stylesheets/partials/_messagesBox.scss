@@ -10,9 +10,28 @@
     padding: 30px;
     overflow-y: scroll;
 
-    .eachMessage {
+    .messageRight {
+      margin: 0;
+      padding: 0;
+      display: block;
       height: 100px;
-      width: 100px;
+      width: 100%;
+
+      span {
+        float: right;
+      }
+    }
+
+    .messageLeft {
+      margin: 0;
+      padding: 0;
+      display: block;
+      height: 100px;
+      width: 100%;
+
+      span {
+        float: left;
+      }
     }
   }
 

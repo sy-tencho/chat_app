@@ -3,6 +3,7 @@ import _ from 'lodash'
 import FriendStore from '../../stores/friend'
 import FriendAction from '../../actions/friends'
 import MessagesAction from '../../actions/messages'
+import CurrentUserAction from '../../actions/currentUser'
 
 class UserList extends React.Component {
 
@@ -43,6 +44,7 @@ class UserList extends React.Component {
   getFriends(id) {
     FriendAction.loadFriendsId(id)
     MessagesAction.getMessages(id)
+    CurrentUserAction.getCurrentUser()
     $('.reply-box').css({
       'display': 'block'
     });

@@ -3,6 +3,7 @@ import Dispatcher from '../dispatcher'
 import BaseStore from '../base/store'
 import FriendStore from '../stores/friend'
 import {ActionTypes} from '../constants/app'
+import { pascalCase } from 'change-case';
 
 const messages = {
   2: {
@@ -89,6 +90,13 @@ class ChatStore extends BaseStore {
   setMessages(array) {
     this.set('userMessages', array)
   }
+  getUsers() {
+    if (!this.get('users')) this.setUsers([])
+    return this.get('users')
+  }
+  setUsers(array) {
+    this.set('users', array)
+  }
 }
 const MessagesStore = new ChatStore()
 
@@ -112,6 +120,11 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
       messages.push(
         action.json.message
       )
+      MessagesStore.emitChange()
+      break
+
+    case ActionTypes.LOAD_CURRENT: 
+      MessagesStore.setUsers(action.json)
       MessagesStore.emitChange()
       break
   }

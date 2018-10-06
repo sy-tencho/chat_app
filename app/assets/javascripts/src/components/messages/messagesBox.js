@@ -4,6 +4,7 @@ import _ from 'lodash'
 import MessagesStore from '../../stores/messages'
 import ReplyBox from '../../components/messages/replyBox'
 // import UserStore from '../../stores/user'
+import Friend from '../../stores/friend'
 // import Utils from '../../utils'
 
 class MessagesBox extends React.Component {
@@ -15,9 +16,16 @@ class MessagesBox extends React.Component {
   get initialState() {
     return this.getStateFromStore()
   }
+  static get propTypes() {
+    return {
+      searchString: React.PropTypes.string,
+    }
+  }
   getStateFromStore() {
     return {
       messages: MessagesStore.getMessages(),
+      userId: MessagesStore.getUsers(),
+      users: Friend.getUsers(),
     }
   }
   componentWillMount() {
@@ -33,7 +41,8 @@ class MessagesBox extends React.Component {
   render() {
     console.log(this.state.messages)
     // const messagesLength = this.state.messages.length
-    // const currentUserID = UserStore.user.id
+    const currentUserID = this.state.userId
+    console.log(currentUserID)
     // const messages = this.state.messages.map((message) => {
     //   const messageClasses = classNames({
     //     'message-box__item': true,
@@ -79,19 +88,26 @@ class MessagesBox extends React.Component {
     // })
     
     const messages = this.state.messages
-
+    console.log(this.state)
 
     return (
         <div className='message-box'>
           <ul className='message-box__list'>
             {
               _.map(messages, (message) => {
-
-                return (
-                  <li key={message.id}>
-                    <span>{message.content}</span>
-                  </li>
-                )
+                if (message.post_user_id == currentUserID) {
+                  return (
+                    <li key={message.id} className='messageRight'> 
+                      <span>{message.content}</span>
+                    </li>
+                  )
+                }else {
+                  return (
+                    <li key={message.id} className='messageLeft'> 
+                      <span>{message.content}</span>
+                    </li>
+                  )
+                }
               })
             }
           </ul>
