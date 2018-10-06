@@ -39,12 +39,15 @@ export default {
     })
   },
 
-  saveMessage(content) {
+  saveMessage(content, to_user_id) {
     return new Promise((resolve, reject) => {
       request
       .post(`${APIEndpoints.MESSAGES}`)
       .set('X-CSRF-Token', CSRFToken())
-      .send({content: content})
+      .send({
+        content: content,
+        to_user_id: to_user_id,
+      })
       .end((error, res) => {
         if (!error && res.status === 200) {
           const json = JSON.parse(res.text)

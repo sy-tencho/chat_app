@@ -29,7 +29,7 @@ class ReplyBox extends React.Component {
   }
   handleKeyDown(e) {
     if (e.keyCode === 13) {
-      MessagesAction.saveMessage(this.state.value)
+      MessagesAction.saveMessage(this.state.value, this.state.users)
       this.setState({
         value: '',
       })
@@ -52,8 +52,8 @@ class ReplyBox extends React.Component {
   }
 
   render() {
-    const toUserId = this.state.users
-    console.log(this.state)
+    // const toUserId = this.state.users
+    console.log(this.state.users)
     return (
       <div className='reply-box'>
         <input
