@@ -20,10 +20,11 @@ import {ActionTypes, APIEndpoints, CSRFToken} from '../constants/app'
 // }
 
 export default {
-  getMessages() {
+  getMessages(id) {
     return new Promise((resolve, reject) => {
       request
       .get(APIEndpoints.MESSAGES)
+      .query({to_user_id: id})
       .end((error, res) => {
         if (!error && res.status === 200) {
           const json = JSON.parse(res.text)

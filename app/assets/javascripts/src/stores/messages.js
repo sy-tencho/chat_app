@@ -98,7 +98,7 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
   switch (action.type) {
     case ActionTypes.GET_MESSAGES:
       openChatID = action.userID
-      MessagesStore.setMessages(action.json.message)
+      MessagesStore.setMessages(action.json)
       MessagesStore.emitChange()
       break
 

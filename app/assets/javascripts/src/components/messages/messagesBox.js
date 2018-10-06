@@ -1,5 +1,6 @@
 import React from 'react'
 // import classNames from 'classNames'
+import _ from 'lodash'
 import MessagesStore from '../../stores/messages'
 import ReplyBox from '../../components/messages/replyBox'
 // import UserStore from '../../stores/user'
@@ -30,6 +31,7 @@ class MessagesBox extends React.Component {
   }
 
   render() {
+    console.log(this.state.messages)
     // const messagesLength = this.state.messages.length
     // const currentUserID = UserStore.user.id
     // const messages = this.state.messages.map((message) => {
@@ -63,23 +65,35 @@ class MessagesBox extends React.Component {
     //   }
     // }
 
-    const messages = this.state.messages.map(message => {
-      // const messageClasses = classNames({
-      //   'message-box__item': true,
-      //   'message-box__item--from-current': message.user_id === currentUserId,
-      //   'clear': true,
-      // })
-      return (
-        <div className='message-box__item__contents'>
-          { messages }
-        </div>
-      )
-    })
+    // const messages = this.state.messages.map(message => {
+    //   const messageClasses = classNames({
+    //     'message-box__item': true,
+    //     'message-box__item--from-current': message.user_id === currentUserId,
+    //     'clear': true,
+    //   })
+    //   return (
+    //     <div className='message-box__item__contents'>
+    //       { messages }
+    //     </div>
+    //   )
+    // })
+    
+    const messages = this.state.messages
+
 
     return (
         <div className='message-box'>
           <ul className='message-box__list'>
-            { messages }
+            {
+              _.map(messages, (message) => {
+
+                return (
+                  <li key={message.id}>
+                    <span>{message.content}</span>
+                  </li>
+                )
+              })
+            }
           </ul>
           <ReplyBox />,
         </div>
