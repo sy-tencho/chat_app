@@ -41,6 +41,9 @@ class UserList extends React.Component {
 
   getFriends(id) {
     FriendAction.loadFriendsId(id)
+    $('.reply-box').css({
+      'display': 'block'
+  });
   }
 
   render() {
