@@ -1,12 +1,19 @@
 import React from 'react'
 import MessagesAction from '../../actions/messages'
 import FriendStore from '../../stores/friend'
+import Friend from '../../stores/friend'
 
 class ReplyBox extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = this.initialState
+  }
+
+  static get propTypes() {
+    return {
+      searchString: React.PropTypes.string,
+    }
   }
 
   get initialState() {
@@ -16,7 +23,8 @@ class ReplyBox extends React.Component {
   }
   getStateFromStore() {
     return {
-      messages: FriendStore.getMessages(),
+      // messages: FriendStore.getMessages(),
+      users: Friend.getUsers(),
     }
   }
   handleKeyDown(e) {
@@ -33,7 +41,19 @@ class ReplyBox extends React.Component {
       value: e.target.value,
     })
   }
+  componentWillMount() {
+    Friend.onChange(this.onStoreChange.bind(this))
+  }
+  componentWillUnmount() {
+    Friend.offChange(this.onStoreChange.bind(this))
+  }
+  onStoreChange() {
+    this.setState(this.getStateFromStore())
+  }
+
   render() {
+    const toUserId = this.state.users
+    console.log(this.state)
     return (
       <div className='reply-box'>
         <input

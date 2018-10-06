@@ -45,7 +45,7 @@ class UserList extends React.Component {
 
   render() {
     const friends = this.state.friends
-
+    console.log(friends)
     return (
       <div className='user-list'>
         <ul id='friendList'>

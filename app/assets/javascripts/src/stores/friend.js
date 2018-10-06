@@ -11,6 +11,16 @@ class FriendStore extends BaseStore {
   setFriends(array) {
     this.set('friends', array)
   }
+
+  getUsers() {
+    if (!this.get('users')) this.setUsers([])
+    return this.get('users')
+  }
+
+  setUsers(array) {
+    this.set('users', array)
+  }
+
 }
 
 const Friend = new FriendStore()
@@ -32,7 +42,7 @@ Friend.dispatchToken = appDispatcher.register(payload => {
       break
 
     case ActionTypes.LOAD_FRIENDS_ID:
-      toUserId = action.toUserId
+      Friend.setUsers(payload.action.toUserId)
       Friend.emitChange()
       break
   }

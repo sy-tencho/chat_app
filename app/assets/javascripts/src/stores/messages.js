@@ -1,7 +1,7 @@
 
 import Dispatcher from '../dispatcher'
 import BaseStore from '../base/store'
-import UserStore from '../stores/user'
+import FriendStore from '../stores/friend'
 import {ActionTypes} from '../constants/app'
 
 const messages = {
@@ -107,7 +107,7 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
       messages.push({
         content: action.json.message,
         timestamp: action.timestamp,
-        from: UserStore.user.id,
+        // from: FriendStore.toUserId,
       })
       messages.push(
         action.json.message

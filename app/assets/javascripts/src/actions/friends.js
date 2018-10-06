@@ -45,9 +45,9 @@ export default {
   },
 
   loadFriendsId(id) {
-    appDispatcher.handleServerAction({
+    appDispatcher.handleViewAction({
       type: ActionTypes.LOAD_FRIENDS_ID,
-      toUserId: id
+      toUserId: id,
     })
   },   
 
