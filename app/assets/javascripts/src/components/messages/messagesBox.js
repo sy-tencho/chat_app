@@ -88,7 +88,10 @@ class MessagesBox extends React.Component {
     // })
     
     const messages = this.state.messages
+    const messageLength = this.state.messages.length
+    console.log(messageLength)
     console.log(this.state)
+    console.log(messages)
 
     return (
         <div className='message-box'>

@@ -1,7 +1,8 @@
 import React from 'react'
 import MessagesAction from '../../actions/messages'
-import FriendStore from '../../stores/friend'
+// import FriendStore from '../../stores/friend'
 import Friend from '../../stores/friend'
+import MessagesStore from '../../stores/messages'
 
 class ReplyBox extends React.Component {
 
@@ -25,11 +26,12 @@ class ReplyBox extends React.Component {
     return {
       // messages: FriendStore.getMessages(),
       users: Friend.getUsers(),
+      userId: MessagesStore.getUsers(),
     }
   }
   handleKeyDown(e) {
     if (e.keyCode === 13) {
-      MessagesAction.saveMessage(this.state.value, this.state.users)
+      MessagesAction.saveMessage(this.state.value, this.state.users, this.state.userId)
       this.setState({
         value: '',
       })
@@ -54,6 +56,7 @@ class ReplyBox extends React.Component {
   render() {
     // const toUserId = this.state.users
     console.log(this.state.users)
+    const currentUserId = this.state.userId
     return (
       <div className='reply-box'>
         <input
