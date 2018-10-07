@@ -111,15 +111,17 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
       break
 
     case ActionTypes.SAVE_MESSAGES:
+      // const messages = MessagesStore.getMessages()
+      // messages.push({
+      //   content: action.json.message,
+      //   timestamp: action.timestamp,
+      //   // from: FriendStore.toUserId,
+      // })
+      // messages.push(
+      //   action.json
+      // )
       const messages = MessagesStore.getMessages()
-      messages.push({
-        content: action.json.message,
-        timestamp: action.timestamp,
-        // from: FriendStore.toUserId,
-      })
-      messages.push(
-        action.json.message
-      )
+      messages.push(action.json)
       MessagesStore.emitChange()
       break
 

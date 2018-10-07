@@ -4,7 +4,8 @@ class Api::MessagesController < ApplicationController
     def create
         @post_user_id = current_user.id
         @message = Message.create(content: params[:content], to_user_id: params[:to_user_id], post_user_id: params[:post_user_id])
-        render json: @message
+        @newMessage = Message.last
+        render json: @newMessage
     end
 
     def index
