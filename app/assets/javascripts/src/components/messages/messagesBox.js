@@ -112,7 +112,7 @@ class MessagesBox extends React.Component {
               })
             }
             <li className='messageRight'>
-              <span>{ messages.content }</span>
+              <span className='newMessage'>{ messages.content }</span>
             </li>
           </ul>
           <ReplyBox />,

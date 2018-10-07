@@ -34,6 +34,7 @@ $red: #ce2434;
 }
 
 .alert {
+    z-index: 0;
     color:$red;
     font-size: 18px;
     font-weight: 400;

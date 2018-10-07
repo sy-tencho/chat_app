@@ -2,35 +2,53 @@
 
   &__list {
     position: absolute;
-    color: black;
+    font-size: 18px;
+    font-weight: 400;
     top: 60px;
     left: 300px;
     right: 0;
     bottom: 67px;
-    padding: 30px;
+    padding: 12px;
     overflow-y: scroll;
 
     .messageRight {
-      margin: 0;
+      margin: 5px 0 0 0;
       padding: 0;
       display: block;
-      height: 100px;
+      height: 50px;
       width: 100%;
 
       span {
         float: right;
+        border-radius: 20px;
+        padding: 10px;
+        color: #fafafa;
+        background-color: #424242;
+      }
+
+      .newMessage {
+        float: right;
+        display: none;
+        border-radius: 20px;
+        padding: 10px;
+        color: #fafafa;
+        background-color: #424242;
       }
     }
 
     .messageLeft {
-      margin: 0;
+      margin: 5px 0 0 0;
       padding: 0;
       display: block;
-      height: 100px;
+      height: 50px;
       width: 100%;
 
       span {
         float: left;
+        border-radius: 20px;
+        padding: 10px;
+        color: #424242;
+        background-color: #e0e0e0;
       }
     }
   }
