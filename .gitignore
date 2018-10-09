@@ -20,4 +20,4 @@ npm-debug.log
 
 # Ignore other unnecessary files.
 .DS_Store
-javascripts/boot.js
+build/public/assets/javascripts
